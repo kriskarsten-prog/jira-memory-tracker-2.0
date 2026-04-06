@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Jira Memory Tracker",
+  "version": "1.0.1",
+  "description": "Track Jira tickets with private notes and status tracking",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": ["*://*.atlassian.net/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.atlassian.net/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
